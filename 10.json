@@ -1,0 +1,24 @@
+{    "name":"Mark Elly",
+    "description":"An award conferred by the university signifying that the recepient has satisfactorily completed a course of study",
+    "image":"ipfs://QmfJH7kfbCTFpaiL7JJCM26GZRDVc1LHJoTcQrXMXF1pFX/10.png",
+    "attributes":[
+
+       {
+           "trait_type": "GPA",
+           "value": 3,
+           "max_value": 4
+       },
+
+       {
+           "trait_type": "major",
+           "value": "Project Management"
+       },
+
+       {
+           "trait_type": "Type Of Degree",
+           "value": "Bachelor Of Business"
+       }
+
+
+    ]
+}
