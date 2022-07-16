@@ -41,7 +41,7 @@ To get a local copy up and running follow these simple example steps.
 
 👤 **Authors**
 
-- Github: [@Nashons](https://github.com/Nashons
+- Github: [@Nashons](https://github.com/Nashons)
 - GitHub: [@Jebitok-dev](https://github.com/Jebitok-dev)
 
 ## 🤝 Contributing
