@@ -9,12 +9,11 @@ Building an NFT Project that allows universities or learning programs to issue N
 
 ## Live Demo
 
-- [Rinkeby Scan](https://rinkeby.etherscan.io/address/0x7a21B4Ec6DeeDD96f276Dc8b0C20AcED10d036DA)
+- [Rinkeby Scan](https://rinkeby.etherscan.io/address/0x8A8366994237b8bBfBB65D721091331803392DF9#code)
 
 <!-- ### NFT Gallery
 
 [BuyMeACoffee](https://buymeacoffee-fe-psi.vercel.app/) -->
-
 
 
 ## Getting Started
@@ -34,8 +33,8 @@ To get a local copy up and running follow these simple example steps.
 ### Hardhat Commands
 - npx hardhat
 - npx hardhat compile
-- npx hardhat run rinkeby scripts/deploy.js
-- npx hardhat verify --network rinkeby 0x7a21B4Ec6DeeDD96f276Dc8b0C20AcED10d036DA
+- npx hardhat run --network rinkeby scripts/deploy.js
+- npx hardhat verify --network rinkeby 0x8A8366994237b8bBfBB65D721091331803392DF9
 
 ## Authors
 
