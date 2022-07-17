@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.spaces {
+  margin-left: 20;
+}
+
 .image {
   width: 70%;
   height: 50%;

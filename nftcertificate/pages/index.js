@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
 import abi from "../Utils/NFTCertificate.json";
-import {ethers} from "ethers";
+import {ethers, providers} from "ethers";
 import Head from "next/head";
 import Image from "next/image";
 import Web3Modal from "web3modal";
@@ -21,13 +21,13 @@ export default function Home() {
   const [name, setName] = useState("");
 
   //sets address of the student to add to whitelist
-  const [newaddress, setNewaddress] = useState("");
+  const [newAddress, setNewAddress] = useState("");
 
   //takes address to be issued a cert
-  const [issueto, setIssueto] = useState("");
+  const [issueTo, setIssueTo] = useState("");
 
   //takes tokenURI to claim the cert
-  const [tokenuri, setTokenuri] = useState("");
+  const [tokenURI, setTokenuri] = useState("");
 
   // checks if the currently connected MetaMask wallet is the owner of the contract
   const [isOwner, setIsOwner] = useState(false);
@@ -41,15 +41,15 @@ export default function Home() {
   };
 
   const onAddressChange = (event) => {
-    setNewaddress(event.target.value);
+    setNewAddress(event.target.value);
   };
 
-  const onTokenuriChange = (event) => {
+  const onTokenUriChange = (event) => {
     setTokenuri(event.target.value);
   };
 
-  const onIssuetoChange = (event) => {
-    setIssueto(event.target.value);
+  const onIssueToChange = (event) => {
+    setIssueTo(event.target.value);
   };
 
   const addAddressTOWhitelist = async () => {
@@ -63,7 +63,7 @@ export default function Home() {
       const nftContract = new Contract(contractAddress, contractABI, signer);
       // call the issueDegree from the contract to issue a degree
       const tx = await nftContract.addAddressToWhitelist(
-        newaddress ? newaddress : "Add address ",
+        newAddress ? newAddress : "Add address ",
         name ? name : "Add name "
       );
       setLoading(true);
@@ -89,7 +89,7 @@ export default function Home() {
       const nftContract = new Contract(contractAddress, contractABI, signer);
       // call the issueDegree from the contract to issue a degree
       const tx = await nftContract.issueDegree(
-        issueto ? issueto : "studentname"
+        issueTo ? issueTo : "studentname"
       );
       setLoading(true);
       // wait for the transaction to get mined
@@ -112,7 +112,7 @@ export default function Home() {
       const nftContract = new Contract(contractAddress, contractABI, signer);
       // call the issueDegree from the contract to issue a degree
       const tx = await nftContract.claimDegree(
-        tokenuri ? tokenuri : "TokenURI"
+        tokenURI ? tokenURI : "TokenURI"
       );
       setLoading(true);
       // wait for the transaction to get mined
@@ -264,7 +264,7 @@ export default function Home() {
   <div>
     <form>
       <label>Issue Degree</label>
-      <input id="issue" type="text" placeholder="Issue Degree" onChange={onIssuetoChange}/>
+      <input id="issue" type="text" placeholder="Issue Degree" onChange={onIssueToChange}/>
     </form>
    <button className={styles.button} onClick={issueDegree}>
      Issue Degree
@@ -278,12 +278,12 @@ export default function Home() {
       <div>
         <div>
           <form>
-            <label>Claim Degree</label>
+            <label className={styles.spaces}>Claim Degree</label>
             <input
               id='claim'
               type='text'
               placeholder='claim Degree'
-              onChange={onTokenuriChange}
+              onChange={onTokenUriChange}
             />
           </form>
 
@@ -324,7 +324,7 @@ export default function Home() {
                 id='issue'
                 type='text'
                 placeholder='Issue Degree'
-                onChange={onIssuetoChange}
+                onChange={onIssueToChange}
               />
             </form>
             <button className={styles.button} onClick={issueDegree}>
