@@ -10,9 +10,11 @@ Building an NFT Project that allows universities or learning programs to issue N
 - ethers.js
 
 ## Live Demo
-
+- [Opensea TestNet](https://testnets.opensea.io/0x589ad89dAdcf33be2eA0aE65E08654EFdAec52E2)
+- [Rinkeby Scan](https://rinkeby.etherscan.io/address/0xF75f28f1633Ac6d2AFE4bb1C044b5115f2Fc21f0#code)
 - [Rinkeby Scan](https://rinkeby.etherscan.io/address/0x8A8366994237b8bBfBB65D721091331803392DF9#code)
 - [Polygon Scan](https://mumbai.polygonscan.com/address/0x4acA8C05E983fF9fDeDa86EB282f29c8669664c2#code)
+- [Video Demo](https://youtu.be/iNTtznILgj8)
 
 <!-- ### NFT Gallery
 
