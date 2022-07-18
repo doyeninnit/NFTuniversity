@@ -36,8 +36,8 @@ To get a local copy up and running follow these simple example steps.
 ### Hardhat Commands
 - npx hardhat
 - npx hardhat compile
-- npx hardhat run --network rinkeby scripts/deploy.js
-- npx hardhat verify --network mumbai 0x4acA8C05E983fF9fDeDa86EB282f29c8669664c2
+- npx hardhat run --network mumbai scripts/deploy.js
+- npx hardhat verify --network mumbai 0xfe7144176ff519d48028C71E9AFC11b17349C531
 
 ## Authors
 
