@@ -1,13 +1,14 @@
-import React, {useState, useRef, useEffect} from "react";
-import abi from "../Utils/NFTCertificate.json";
-import {ethers, Contract, providers, utils} from "ethers";
+import React, {useState, useEffect} from "react";
+//import abi from "../Utils/NFTCertificate.json";
+import { abi } from "../constants";
+import {ethers, Contract, providers } from "ethers";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const contractABI = abi.abi;
-  const contractAddress = "0x4acA8C05E983fF9fDeDa86EB282f29c8669664c2";
+  const contractAddress = "0x571c998e6177f072Eef2dE6724DCd8C1449d4c1B";
   const [walletConnected, setWalletConnected] = useState(false);
 
   // loading is set to true when we are waiting for a transaction to get mined
@@ -116,7 +117,7 @@ export default function Home() {
   };
 
   // issue degree
-  const issueDegree = async () => {
+  const issueNFT = async () => {
     try {
       const {ethereum} = window;
 
@@ -126,14 +127,14 @@ export default function Home() {
         const nftContract = new Contract(contractAddress, contractABI, signer);
         await getOwner();
         console.log("issueDegree");
-        const tx = await nftContract.issueDegree(
+        const tx = await nftContract.issueNFT(
           issueTo ? issueTo : "studentname"
         );
         setLoading(true);
         // wait for the transaction to get mined
         await tx.wait();
         setLoading(false);
-        window.alert("You successfully issued a degree");
+        window.alert("You successfully issued an NFT");
       }
     } catch (err) {
       console.log(err);
@@ -141,7 +142,7 @@ export default function Home() {
   };
 
   // claim degree function
-  const claimDegree = async () => {
+  const claimNFT = async () => {
     try {
       const {ethereum} = window;
       if (ethereum) {
@@ -149,37 +150,20 @@ export default function Home() {
         const signer = provider.getSigner();
         const nftContract = new Contract(contractAddress, contractABI, signer);
         console.log("claimDegree");
-        const tx = await nftContract.claimDegree(
+        const tx = await nftContract.claimNFT(
           tokenURI ? tokenURI : "TokenURI"
         );
         setLoading(true);
         await tx.wait();
         setLoading(false);
-        window.alert("You successfully claimed your degree");
+        window.alert("You successfully claimed your ABC NFT");
       }
     } catch (err) {
       console.error(err);
     }
   };
 
-  // gets the tokenId that has been minted
-  // const getTokenId = async () => {
-  //   try {
-  //     const {ethereum} = window;
-  //     if (ethereum) {
-  //       const provider = new ethers.providers.Web3Provider(ethereum, "any");
-  //       const signer = provider.getSigner();
-  //       const nftContract = new Contract(contractAddress, contractABI, signer);
-  //       // call the tokenIds from the contract
-  //       const _tokenId = await nftContract.getTokenId();
-  //       console.log("tokenId", _tokenId);
-  //       //_tokenIds is a `Big Number`. We need to convert the Big Number to a string
-  //       setTokenId(_tokenId.toString());
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  
 
   /**
    * getOwner: calls the contract to retrieve the owner
@@ -245,10 +229,10 @@ export default function Home() {
     }
 
     return (
-      <div className={styles.space}>
+      <div>
         <div>
-          <form className={styles.spaces}>
-            <label className={styles.spaces}>Claim Degree</label>
+          <form>
+            <label className={styles.spaces}>Claim ABC NFT</label> <br />
             <input
               id='claim'
               type='text'
@@ -257,15 +241,16 @@ export default function Home() {
             />
           </form>
           <br />
-          <button className={styles.button} onClick={claimDegree}>
-            Claim Degree
+
+          <button className={styles.button} onClick={claimNFT}>
+            Claim NFT
           </button>
         </div>
         <div>
           <div>
-            <form className={styles.spaces}>
+            <form>
               <div className='formgroup'>
-                <label className={styles.spaces}>Add Address</label>
+                <label>Add Address</label> <br />
 
                 <input
                   id='address'
@@ -273,6 +258,7 @@ export default function Home() {
                   placeholder='Add Address'
                   onChange={onAddressChange}
                 />
+              
                 <input
                   id='name'
                   type='text'
@@ -289,8 +275,8 @@ export default function Home() {
           </div>
 
           <div>
-            <form className={styles.spaces}>
-              <label>Issue Degree</label>
+            <form>
+              <label>Issue NFT</label> <br />
               <input
                 id='issue'
                 type='text'
@@ -299,8 +285,8 @@ export default function Home() {
               />
             </form>
             <br />
-            <button className={styles.button} onClick={issueDegree}>
-              Issue Degree
+            <button className={styles.button} onClick={issueNFT}>
+              Issue NFT
             </button>
           </div>
         </div>
@@ -311,24 +297,21 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>NFTuniversity</title>
-        <meta name='description' content='NFTuniversityDapp' />
+        <title>AFRICA BLOCKCHAIN CENTER</title>
+        <meta name='description' content='ABC Dapp' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className={styles.main}>
         <div>
-          <h1 className={styles.title}>Welcome to NFTuniversity!</h1>
+          <h1 className={styles.title}>WELCOME TO AFRICA BLOCKCHAIN CENTER!</h1>
           <div className={styles.description}>NFT issuing Dapp</div>
-          <div className={styles.description}>
-            {/* {tokenId} */}
-            {/* /10 have been issued */}
-          </div>
+          
           {renderButton()}
         </div>
         <div>
-          <img className={styles.image} src='./public/uni.jpg' />
+        <img className={styles.image} src='/0.svg' />
         </div>
-      </div>
+     </div>
 
       <footer className={styles.footer}>
         Made with &#10084; by Sharon & Nashons
