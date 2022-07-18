@@ -83,9 +83,7 @@ export default function Home() {
         method: "eth_requestAccounts",
       });
 
-      setCurrentAccount(accounts[0]);
-      // Get the provider from web3Modal, which in our case is MetaMask
-      // When used for the first time, it prompts the user to connect their wallet
+      setCurrentAccount(accounts[0]); 
     } catch (err) {
       console.log(err);
     }
