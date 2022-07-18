@@ -16,7 +16,7 @@
 }
 
 .spaces {
-  margin-left: 20;
+  justify-content: space-around;
 }
 
 .image {

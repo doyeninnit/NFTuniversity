@@ -4,12 +4,15 @@ Building an NFT Project that allows universities or learning programs to issue N
 ## Built With
 
 - OpenZeppelin ERC721
-- Ankr
-- Rinkeby Testnet
+- Ankr - RPC Endpoint
+- Polygon Mumbai
+- Next.js 
+- ethers.js
 
 ## Live Demo
 
 - [Rinkeby Scan](https://rinkeby.etherscan.io/address/0x8A8366994237b8bBfBB65D721091331803392DF9#code)
+- [Polygon Scan](https://mumbai.polygonscan.com/address/0x4acA8C05E983fF9fDeDa86EB282f29c8669664c2#code)
 
 <!-- ### NFT Gallery
 
@@ -34,7 +37,7 @@ To get a local copy up and running follow these simple example steps.
 - npx hardhat
 - npx hardhat compile
 - npx hardhat run --network rinkeby scripts/deploy.js
-- npx hardhat verify --network rinkeby 0x8A8366994237b8bBfBB65D721091331803392DF9
+- npx hardhat verify --network mumbai 0x4acA8C05E983fF9fDeDa86EB282f29c8669664c2
 
 ## Authors
 

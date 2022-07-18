@@ -256,7 +256,7 @@ export default function Home() {
               onChange={onTokenUriChange}
             />
           </form>
-
+          <br />
           <button className={styles.button} onClick={claimDegree}>
             Claim Degree
           </button>
@@ -265,7 +265,7 @@ export default function Home() {
           <div>
             <form>
               <div className='formgroup'>
-                <label>Add Address</label>
+                <label className={styles.spaces}>Add Address</label>
 
                 <input
                   id='address'
@@ -281,6 +281,7 @@ export default function Home() {
                 />
               </div>
             </form>
+            <br />
             <button className={styles.button} onClick={addAddressTOWhitelist}>
               {" "}
               Add Address To Whitelist
@@ -289,7 +290,7 @@ export default function Home() {
 
           <div>
             <form>
-              <label>Issue Degree</label>
+              <label className={styles.spaces}>Issue Degree</label>
               <input
                 id='issue'
                 type='text'
@@ -297,6 +298,7 @@ export default function Home() {
                 onChange={onIssueToChange}
               />
             </form>
+            <br />
             <button className={styles.button} onClick={issueDegree}>
               Issue Degree
             </button>
@@ -319,7 +321,7 @@ export default function Home() {
           <div className={styles.description}>NFT issuing Dapp</div>
           <div className={styles.description}>
             {/* {tokenId} */}
-            /10 have been issued
+            {/* /10 have been issued */}
           </div>
           {renderButton()}
         </div>

@@ -2,7 +2,7 @@ require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 const dotenv = require("dotenv");
 dotenv.config({path: __dirname + '/.env'});
-const { RPC_URL, PRIVATE_KEY } = process.env;
+const { RPC_URL, PRIVATE_KEY, POLYGONSCAN_APIKEY } = process.env;
 require("@nomiclabs/hardhat-ethers")
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -24,12 +24,12 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    rinkeby: {
+    mumbai: {
       url: RPC_URL || "",
       accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_APIKEY,
+    apiKey: process.env.POLYGONSCAN_APIKEY,
   }
 };
