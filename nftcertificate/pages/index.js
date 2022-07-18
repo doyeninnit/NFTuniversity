@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const contractABI = abi.abi;
-  const contractAddress = "0x8A8366994237b8bBfBB65D721091331803392DF9";
+  const contractAddress = "0x4acA8C05E983fF9fDeDa86EB282f29c8669664c2";
   const [walletConnected, setWalletConnected] = useState(false);
 
   // loading is set to true when we are waiting for a transaction to get mined
