@@ -1,10 +1,9 @@
-//SPDX-License-Identifier: MIT
-
+//SPDX-License-Identifier: MIT;
 pragma solidity ^0.8.2;
-
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+
+
 
 contract UniversityContract is ERC721URIStorage {
     
@@ -12,7 +11,7 @@ contract UniversityContract is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() ERC721("NFTUniversityDegree", "NFTDegree") {
+    constructor() ERC721("ABC NFT", "ABCNFT") {
         owner = msg.sender;
     }
 
@@ -28,13 +27,15 @@ contract UniversityContract is ERC721URIStorage {
     mapping(string => uint) public timeAddressAdded;
 
     //stores addresses of issued degrees
-    mapping(address => bool) public IssuedDegrees;
+    mapping(address => bool) public IssuedNFTs;
 
     //stores a persons address to tokenURI it holds
-    mapping(address => string) public PersonToDegree;
+    mapping(address => string) public PersonToNFT;
 
     //stores address of the deployer
      address owner;
+
+     uint256 public tokenId;
 
     //stores number of whitelistd addresses
     uint8 public numAddressesWhitelisted;
@@ -64,24 +65,31 @@ contract UniversityContract is ERC721URIStorage {
     }
 
 
-    function issueDegree (address to ) onlyOwner public {
-        IssuedDegrees[to] = true;
+    function issueNFT(address to ) onlyOwner public {
+        IssuedNFTs[to] = true;
         require(whitelistedAddresses[to], "Address not whitelisted");
     }
-
-    function claimDegree(string memory tokenURI) public returns (uint256) {
-        require(IssuedDegrees[msg.sender], "Degree not yet issues");
+    
+    function claimNFT(string memory tokenURI) public returns (uint256){
+        require(IssuedNFTs[msg.sender], "Degree not yet issued");
 
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
 
+         tokenId = newItemId;
+
+
         _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
         
-        PersonToDegree[msg.sender] = tokenURI;
-        IssuedDegrees[msg.sender] = false;
+        PersonToNFT[msg.sender] = tokenURI;
+        IssuedNFTs[msg.sender] = false;
 
         return newItemId;
+    }
+
+    function getTokenId() public view returns (uint256) {
+        return tokenId;
     }
 }
