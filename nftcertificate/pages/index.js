@@ -245,9 +245,9 @@ export default function Home() {
     }
 
     return (
-      <div>
+      <div className={styles.space}>
         <div>
-          <form>
+          <form className={styles.spaces}>
             <label className={styles.spaces}>Claim Degree</label>
             <input
               id='claim'
@@ -263,7 +263,7 @@ export default function Home() {
         </div>
         <div>
           <div>
-            <form>
+            <form className={styles.spaces}>
               <div className='formgroup'>
                 <label className={styles.spaces}>Add Address</label>
 
@@ -289,8 +289,8 @@ export default function Home() {
           </div>
 
           <div>
-            <form>
-              <label className={styles.spaces}>Issue Degree</label>
+            <form className={styles.spaces}>
+              <label>Issue Degree</label>
               <input
                 id='issue'
                 type='text'

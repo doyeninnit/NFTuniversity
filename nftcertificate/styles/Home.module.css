@@ -15,8 +15,8 @@
   align-items: center;
 }
 
-.spaces {
-  justify-content: space-around;
+.space {
+  margin: 25px 50px 75px 100px;
 }
 
 .image {
